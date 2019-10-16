@@ -2,7 +2,7 @@
 ## Directions: ##
  * Click on the blue "Get PRs/Issues Count" button below.
  * Type in a valid Github username
- * Remember, in order to complete the ["First Steps"](firststeps.md) you need at least 5 valid PRs and 4 issues.
+ * Remember, in order to complete the ["First Steps"](firststeps.md) you need at least: 5 valid PRs, 4 issues, and 4 comments.
  * Click [here](firststeps.md#Step_8_-_Create_Issues_and_Pull_Requests) to return to Step 8.
 
 <style><!--
@@ -121,7 +121,7 @@
                   }
                 }
                 let p = document.createElement('p');
-                p.innerHTML = "<strong>Number of Issues:<strong> " + count;
+                p.innerHTML = "<strong>Number of Comments:<strong> " + count;
                 res.appendChild(p);
             })
             .catch(function(error) {
