@@ -46,6 +46,7 @@
                     Total_PRs();
                     Total_Issues();
                     Merged_PRs();
+                    Total_Comments();
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -101,6 +102,26 @@
             .then(function(data) {
                 let p = document.createElement('p');
                 p.innerHTML = "<strong>Number of Merged PRs:<strong> " + data.total_count;
+                res.appendChild(p);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+    function Total_Comments() {
+        var url = "https://api.github.com/search/issues?q=repo:treehouses/treehouses.github.io+commenter:" + user;
+        fetch(url)
+            .then(checkStatus)
+            .then((resp) => resp.json())
+            .then(function(data) {
+                var count = 0;
+                for (var i = 0; i < data.total_count; i++) {
+                  if (data.items[i].user.login != user) {
+                    count++;
+                  }
+                }
+                let p = document.createElement('p');
+                p.innerHTML = "<strong>Number of Issues:<strong> " + count;
                 res.appendChild(p);
             })
             .catch(function(error) {
